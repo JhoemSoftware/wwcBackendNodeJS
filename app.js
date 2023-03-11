@@ -1,2 +1,1 @@
-const app = require('./public/index');
-app();
+require('./public/index');
