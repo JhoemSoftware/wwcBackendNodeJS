@@ -1,1 +1,2 @@
-console.log('Hola WWC Medellín')
+const app = require('./public/index');
+app();
