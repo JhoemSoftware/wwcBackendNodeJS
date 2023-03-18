@@ -1,1 +1,1 @@
-require('./public/index');
+require('./Clase2/index');

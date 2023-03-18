@@ -14,4 +14,5 @@ fetchApi('https://rickandmortyapi.com/api/character')
             console.log(' ');
             console.log(`${id}• `.red + `${name}`.blue + ' • ' + `${species}`.yellow + ' • ' + `${gender}`.cyan)
         }
-    });
+    })
+    .catch(err => console.log(err));
