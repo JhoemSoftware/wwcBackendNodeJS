@@ -4,3 +4,5 @@
 
 # Women Who Code Medellín
 Curso de Backend en Node JS de la comunidad Women Who Code Medellín
+
+Para el ejercicio de la clase 1, basta con correr el comando <pre>npm start</pre>
