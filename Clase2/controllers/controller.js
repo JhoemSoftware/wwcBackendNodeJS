@@ -1,8 +1,10 @@
-const { response } = require("express")
+const { response } = require("express");
+const series = require('./../models/series');
 
 const methodGET = (req, res = response) => {
     res.json({
-        message: 'Método GET Funcionando 😀'
+        message: 'Método GET Funcionando 😀',
+        series
     });
 }
 
