@@ -9,8 +9,20 @@ const methodGET = (req, res = response) => {
 }
 
 const methodPOST = (req, res = response) => {
+
+    const ultimoRegistro = (series[series.length - 1].id) + 1;
+    const { name } = req.body;
+
+    const data = {
+        id: ultimoRegistro,
+        name
+    }
+
+    series.push(data);
+
     res.json({
-        message: 'Método POST Funcionando 😀'
+        message: 'Método POST Funcionando 😀',
+        data
     });
 }
 
