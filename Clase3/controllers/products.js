@@ -12,27 +12,33 @@ const productsGetId = (req, res = response) => {
 
     if(!productBD) throw new Error(`No se ha encontrado el producto con código ${id}`);
 
-    res.json({
-        msg: "OK",
-        data: productBD
-    });
+    res.json(productBD);
 }
 
-const productsPOST = (req, res = response) => {
-    const { id, name, price, stock } = req.body;
-    const product = []
+const productsPost = (req, res = response) => {
+    const { name, price, stock } = req.body;
 
-    const productBD = Products.find( p => p.id = Number(id) );
+    const id = (Products[Products.length - 1].id) + 1;
 
-    if(!productBD) throw new Error(`No se ha encontrado el producto con código ${productID}`);
+    const product = { id, name, price, stock }
+
+    Products.push(product);
     
-    res.json({
-        msg: "OK",
-        data: productBD
-    });
+    res.json(product);
+}
+
+const productsPut = (req, res = response) => {
+    
+}
+
+const productsDelete = (req, res = response) => {
+    
 }
 
 module.exports = {
     productsGet,
-    productsGetId
+    productsGetId,
+    productsPost,
+    productsPut,
+    productsDelete
 };
