@@ -16,7 +16,7 @@ class Server {
     listen(){
         this.app.listen(this.port, () => {
             console.clear();
-            console.log(`App Listening at `.cyan + `${this.port}`.yellow + ` 😀\nUrl: `.blue + `${this.host}:${this.port}${this.urlRoute} 🌐`);
+            console.log(`App Clase 2 • Listening at `.cyan + `${this.port}`.yellow + ` 😀\nUrl: `.blue + `${this.host}:${this.port}${this.urlRoute} 🌐`);
         });
     }
 

@@ -1,0 +1,48 @@
+{
+    "series": [
+        {
+            "id": 1001,
+            "name": "Dororo",
+            "age": "2019",
+            "gender": [
+                "Sobrenatural", "Shounen", "Historico", "Demonios", "Aventura", "Accion"
+            ],
+            "episodes": "24",
+            "picture": "https://ramenparados.com/wp-content/uploads/2018/12/dororo-key-art-1000x600-1544134877.jpg",
+            "status": 1
+        },
+        {
+            "id": 1002,
+            "name": "Kono Subarashii Sekai ni Shukufuku wo!",
+            "age": "2016",
+            "gender": [
+                "Sobrenatural", "Romance", "Fantasìa", "Comedia", "Aventura", "Isekai"
+            ],
+            "episodes": "10",
+            "picture": "https://blacknerdproblems.com/wp-content/uploads/2016/04/Konosuba.jpg",
+            "status": 1
+        },
+        {
+            "id": 1003,
+            "name": "Kimetsu no Yaiba",
+            "age": "2019",
+            "gender": [
+                "Sobrenatural", "Shounen", "Historico", "Demonios", "Accion"
+            ],
+            "episodes": "26",
+            "picture": "https://sphinxanime.com/wp-content/uploads/2021/04/kimetsunoyaibawallpapersphinxanime.jpg",
+            "status": 1
+        },
+        {
+            "id": 1004,
+            "name": "Gintama",
+            "age": "2010",
+            "gender": [
+                "Accion", "Comedia", "Historico", "Parodia", "Samurai", "Sci-Fi", "Shounen"
+            ],
+            "episodes": "201",
+            "picture": "https://dailyanimeart.files.wordpress.com/2016/09/gintama.jpg",
+            "status": 1
+        }
+    ]
+}

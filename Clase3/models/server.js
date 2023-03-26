@@ -16,7 +16,7 @@ class Server {
     listen(){
         this.app.listen(this.port, () => {
             console.clear();
-            console.log(`App Listening at `.cyan + `${this.port}`.yellow + ` 😀\nUrl: `.blue + `${this.host}:${this.port}${this.urlRoute} 🌐`);        
+            console.log(`App Clase 3 • Listening at `.cyan + `${this.port}`.yellow + ` 😀\nUrl API: `.green + `${this.host}:${this.port}${this.urlRoute} ⚙️\n` + `Url Web: `.green + `${this.host}:${this.port} 🌐`);
         });
     }
     
@@ -25,7 +25,7 @@ class Server {
     }
     
     routes(){
-        this.app.use(this.urlRoute, require('../routes/request'));
+        this.app.use(this.urlRoute, require('../routes/route'));
     }
 
 }
