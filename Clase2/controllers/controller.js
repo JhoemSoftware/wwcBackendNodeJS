@@ -1,27 +1,34 @@
 const { response } = require("express");
-const series = require('./../models/series');
 
-const methodGET = (req, res = response) => {
+const Series = require("./../models/series");
+const series = new Series();
+
+const methodGET = ( req, res = response ) => {
+    res.json( series );
+}
+
+const methodGETbyID = async (req, res = response) => {
+
+    const { id } = req.params;
+
+    const serieBD = await series.buscarSerie(id);
+
+    if(!serieBD) res.status(400).json({
+        error: `La serie con código #${id}, no se encuentra disponible`
+    });
+
     res.json({
-        message: 'Método GET Funcionando 😀',
-        series
+        serie: serieBD
     });
 }
 
-const methodPOST = (req, res = response) => {
+const methodPOST = async (req, res = response) => {
 
-    const ultimoRegistro = (series[series.length - 1].id) + 1;
     const { name } = req.body;
 
-    const data = {
-        id: ultimoRegistro,
-        name
-    }
-
-    series.push(data);
+    const data = await series.agregarSeries(name);
 
     res.json({
-        message: 'Método POST Funcionando 😀',
         data
     });
 }
@@ -46,6 +53,7 @@ const methodDELETE = (req, res = response) => {
 
 module.exports = {
     methodGET,
+    methodGETbyID,
     methodPOST,
     methodPUT,
     methodPATCH,
