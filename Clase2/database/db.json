@@ -5,10 +5,6 @@
             "name": "Kono Subarashii Sekai ni Shukufuku Wo!"
         },
         {
-            "id": 1003,
-            "name": "Peaky Blenders"
-        },
-        {
             "id": 1004,
             "name": "Woo Young Woo"
         },
@@ -39,6 +35,14 @@
         {
             "id": 1011,
             "name": "Dororo"
+        },
+        {
+            "id": 1012,
+            "name": "Boruto • Naruto Next Generations"
+        },
+        {
+            "id": 1013,
+            "name": "Naruto"
         }
     ]
 }

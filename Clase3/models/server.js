@@ -16,11 +16,12 @@ class Server {
     listen(){
         this.app.listen(this.port, () => {
             console.clear();
-            console.log(`App Clase 3 • Listening at `.cyan + `${this.port}`.yellow + ` 😀\nUrl API: `.green + `${this.host}:${this.port}${this.urlRoute} ⚙️\n` + `Url Web: `.green + `${this.host}:${this.port} 🌐`);
+            console.log(`App Clase 3 • Listening at `.cyan + `${this.port}`.yellow + ` 😀\nUrl API: `.green + `${this.host}:${this.port}${this.urlRoute} ⚙️\n` + `Url Web: `.green + `${this.host}:8080 🌐`);
         });
     }
     
     middlewares(){
+        this.app.use( express.static('public') );
         this.app.use(express.json());
     }
     
