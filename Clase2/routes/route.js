@@ -4,7 +4,6 @@ const {
     methodGETbyID,
     methodPOST,
     methodPUT,
-    methodPATCH,
     methodDELETE
 } = require('./../controllers/controller');
 
@@ -14,7 +13,6 @@ router.get('/', methodGET);
 router.get('/:id', methodGETbyID);
 router.post('/', methodPOST);
 router.put('/', methodPUT);
-router.patch('/', methodPATCH);
-router.delete('/', methodDELETE);
+router.delete('/:id', methodDELETE);
 
 module.exports = router;
