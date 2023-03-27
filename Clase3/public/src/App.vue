@@ -31,7 +31,7 @@ export default {
     <div>
         <header class="space-inter">
             <div class="container container-flex space-between">
-                <h1 class="logoPage"><span>APP</span>movies</h1>
+                <h1 class="logoPage"><span>APP</span>Series</h1>
                 <nav class="custom-wrapper" id="menu">
                     <ul class="container-flex list-unstyled">
                         <li>
