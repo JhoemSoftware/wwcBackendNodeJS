@@ -1,4 +1,4 @@
-# front
+# Front App • WWC Medellín • NodeJS
 
 ## Project setup
 ```

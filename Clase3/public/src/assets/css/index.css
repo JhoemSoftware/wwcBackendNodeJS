@@ -1,0 +1,22 @@
+html {
+    min-height: 100%;
+}
+
+body {
+    padding: 4vmin;
+    text-align: center;
+    background-color: rgb(8, 13, 26);
+    color: aliceblue;
+    font-family: sans-serif;
+}
+
+ul {
+    text-align: left;
+}
+
+a {
+    text-decoration: none;
+    color: aquamarine;
+    text-transform: capitalize;
+    letter-spacing: 2px;
+}
