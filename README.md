@@ -24,3 +24,4 @@ El proyecto está dividido por clases, para levantar el servicio basta con ejecu
 "fs":                   "^0.0.1-security",
 "nodemon":              "^2.0.21"
 </pre>
+También es importante instalar<pre>sudo npm install -g json-server</pre>

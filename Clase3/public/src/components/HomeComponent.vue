@@ -6,7 +6,7 @@
                     <!-- {{ data.picture }} -->
                     <div class="card">
                         <div class="card-body">
-                            <img src="./../assets/img/1001.jpg" alt="Foto Serie" width="230">
+                            <!-- <img src="./../assets/img/1001.jpg" alt="Foto Serie" width="230"> -->
                             <h3 class="card-title">{{ data.id }} • {{ data.name }}</h3>
                             <p class="card-text">
                                 <b>Episodios: </b> {{ data.episodes }} <br />
@@ -49,7 +49,7 @@ export default {
                 picture: "",
                 status: 0
             },
-            page: "http://localhost:8088/api",
+            page: "http://localhost:8188/api",
         };
     },
     created() {
