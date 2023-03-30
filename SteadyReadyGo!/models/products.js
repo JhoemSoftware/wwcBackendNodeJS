@@ -6,10 +6,68 @@ class Products {
     _dbPath     = 'SteadyReadyGo!/database/db.json';
 
     constructor(){
-        this.readDataBase();
+        this.readDB();
     }
 
-    readDataBase(){
+    findProduct(product = 0){
+        return this._products.find( p => p.id === product );
+    }
+
+    addProduct(product = []){
+        const dataBD = this._products.find( p => p.name === product );
+        if(dataBD) return;
+
+        const lastProduct = (this.series[this._products.length - 1].id) + 1;
+
+        const newProduct = {
+            id: lastProduct,
+            name: product
+        }
+
+        this._products.push(newProduct);
+        
+        this.saveBD();
+
+        return newProduct;
+    }
+
+    editProduct(id = 0, data = []){
+        const product = this._products.find( p => p.id === id );
+        
+        if(!product) return;
+
+        product.name        = data['name'];
+        product.reference   = data['reference'];
+        product.price       = data['price'];
+        product.cylinder    = data['cylinder'];
+        product.stock       = data['stock'];
+
+        this.saveBD();
+
+        return product;
+    }
+
+    deleteProduct(id = 0){
+        const infoBD = this._products.find( p => p.id === Number(id) );
+        if(!infoBD) return;
+
+        this._products = this._products.filter( p => p.id != Number(id) );
+        
+        this.saveBD();
+
+        return true;
+    }
+
+    saveBD(){
+        const manyRows = {
+            products: this._products
+        };
+
+        fs.writeFileSync( this.dbPath, JSON.stringify(manyRows) );
+        fs.writeFileSync('SteadyReadyGo!/database/db.txt', manyRows);
+    }
+
+    readDB(){
         if(!fs.existsSync(this._dbPath)) return;
 
         const info = fs.readFileSync(this._dbPath, { encoding: 'utf-8' });
