@@ -7,8 +7,8 @@ class Server {
     constructor(){
         this.app        = express();
         this.host       = 'http://localhost';
+        this.urlPath   = '/api/v1/products/';
         this.port       = process.env.PORT;
-        this.urlRoute   = '/api';
 
         this.middlewares();
         this.routes();
@@ -17,7 +17,7 @@ class Server {
     listen(){
         this.app.listen(this.port, () => {
             console.clear();
-            console.log(`Proyecto: Steady, Ready, go! • App Listening at `.cyan + `${this.port}`.yellow + ` 😀\nUrl API: `.green + `${this.host}:${this.port}${this.urlRoute} ⚙️`);
+            console.log(`Proyecto: Steady, Ready, go! • App Listening at `.cyan + `${this.port}`.yellow + ` 😀\nUrl API: `.green + `${this.host}:${this.port}${this.urlPath} ⚙️`);
         });
     }
     
@@ -28,7 +28,7 @@ class Server {
     }
     
     routes(){
-        this.app.use(this.urlRoute, require('../routes/route'));
+        this.app.use(this.urlPath, require('../routes/route'));
     }
 }
 

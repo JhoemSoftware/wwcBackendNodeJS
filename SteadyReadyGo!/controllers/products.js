@@ -1,8 +1,9 @@
 const { response } = require("express");
+const Products = require('./../models/products');
 
-const productsGet = ( req, res = response ) => {
-    res.json('Hola Steady, Ready, Go!');
-}
+const product = new Products();
+
+const productsGet = ( req, res = response ) => res.json( product._products );
 
 module.exports = {
     productsGet

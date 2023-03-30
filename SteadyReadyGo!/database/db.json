@@ -1,0 +1,20 @@
+{
+    "products": [
+        {
+            "id": 1001,
+            "name": "Classic",
+            "reference": "350 Twinspark",
+            "price": 13000000,
+            "cylinder": "346 CC",
+            "stock": 5
+        },
+        {
+            "id": 1002,
+            "name": "Classic",
+            "reference": "350 Efi",
+            "price": 13000000,
+            "cylinder": "346 CC",
+            "stock": 7
+        }
+    ]
+}
