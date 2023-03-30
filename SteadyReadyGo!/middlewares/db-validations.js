@@ -10,7 +10,11 @@ const infoDataBaseExistsByID = async (id = '') => {
 }
 
 const infoDataBaseExistsByName = async (name = '') => {
-
+    const dataBD = await product._products.find( p => p.name === name )?.name;
+    
+    if(!dataBD) return;
+    
+    return dataBD;
 }
 
 module.exports = {

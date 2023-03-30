@@ -24,3 +24,6 @@ public/*.ntvs*
 public/*.njsproj
 public/*.sln
 public/*.sw?
+
+## Steady, Ready, Go!
+SteadyReadyGo!/database/db.json

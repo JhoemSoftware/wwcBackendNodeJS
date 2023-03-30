@@ -4,6 +4,8 @@ const {
     infoDataBaseExistsByName
 } = require('../middlewares/db-validations');
 
+const { validatorFields } = require('./../middlewares/validator-fields');
+
 const Products = require('./../models/products');
 const products = new Products();
 
@@ -22,12 +24,38 @@ const productsGetByID = async ( req, res = response ) => {
         return;
     }
 
-    const product = await products.findProduct(existsBD)
+    const product = await products.findProduct(existsBD);
     res.json({ product });
 }
 
 const productsPost = async ( req, res = response ) => {
-    res.json('Method Post');
+    const { name, reference, price, cylinder, stock } = req.body;
+
+    const existsBD = await infoDataBaseExistsByName(name);
+
+    if(existsBD){
+        res.status(400).json({
+            "error": `El producto ${name} ya se encuentra registrado`
+        });
+        return;
+    }
+
+    const validatorField = validatorFields(price, cylinder, stock);
+
+    if(!validatorField) {
+        res.status(400).json({
+            "error": "La información enviada es incorrecta, favor validar"
+        });
+        return;
+    }
+
+    const lastProductID = (products._products[products._products.length - 1].id) + 1;
+
+    const newProduct = [ lastProductID, name, reference, validatorField[0], validatorField[1], validatorField[2] ];
+
+    const result = await products.addProduct(newProduct);
+
+    res.json( result );
 }
 
 const productsPatch = async ( req, res = response ) => {

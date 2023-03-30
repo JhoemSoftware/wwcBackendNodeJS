@@ -1,5 +1,6 @@
 const fs = require('fs');
 require('./../database/db.json');
+require('./../database/db.txt');
 
 class Products {
     _products   = [];
@@ -14,21 +15,20 @@ class Products {
     }
 
     addProduct(product = []){
-        const dataBD = this._products.find( p => p.name === product );
-        if(dataBD) return;
-
-        const lastProduct = (this.series[this._products.length - 1].id) + 1;
-
         const newProduct = {
-            id: lastProduct,
-            name: product
+            id:         product[0],
+            name:       product[1],
+            reference:  product[2],
+            price:      product[3],
+            cylinder:   product[4],
+            stock:      product[5]
         }
 
         this._products.push(newProduct);
         
         this.saveBD();
 
-        return newProduct;
+        return true;
     }
 
     editProduct(id = 0, data = []){
@@ -63,8 +63,10 @@ class Products {
             products: this._products
         };
 
+        console.log(this._dbPath)
+
         fs.writeFileSync( this.dbPath, JSON.stringify(manyRows) );
-        fs.writeFileSync('SteadyReadyGo!/database/db.txt', manyRows);
+        /* fs.writeFileSync('SteadyReadyGo!/database/db.txt', JSON.stringify(manyRows)); */
     }
 
     readDB(){
