@@ -6,7 +6,6 @@ const { validateInteger } = require('./../middlewares/validator-fields');
 const Products = require('./../models/products');
 const products = new Products();
 
-/* API Request Methods */
 const productsGet = ( req, res = response ) => res.json({ "products": products._products });
 
 const productsGetByID = async ( req, res = response ) => {
