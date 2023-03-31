@@ -1,4 +1,4 @@
-const validatorFields = ( price = '', cylinder = '', stock = '' ) => {
+const validateInteger = ( price = '', cylinder = '', stock = '' ) => {
     const data = [];
 
     if(Number(price))    data.push(Number(price));
@@ -9,5 +9,5 @@ const validatorFields = ( price = '', cylinder = '', stock = '' ) => {
 }
 
 module.exports = {
-    validatorFields
+    validateInteger
 }

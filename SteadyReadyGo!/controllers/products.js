@@ -1,10 +1,7 @@
 const { response } = require("express");
-const {
-    infoDataBaseExistsByID,
-    infoDataBaseExistsByName
-} = require('../middlewares/db-validations');
 
-const { validatorFields } = require('./../middlewares/validator-fields');
+const { infoDataBaseExistsByID, infoDataBaseExistsByName } = require('../middlewares/db-validations');
+const { validateInteger } = require('./../middlewares/validator-fields');
 
 const Products = require('./../models/products');
 const products = new Products();
@@ -40,9 +37,9 @@ const productsPost = async ( req, res = response ) => {
         return;
     }
 
-    const validatorField = validatorFields(price, cylinder, stock);
+    const validatorInt = await validateInteger(price, cylinder, stock);
 
-    if(!validatorField) {
+    if(!validatorInt) {
         res.status(400).json({
             "error": "La información enviada es incorrecta, favor validar"
         });
@@ -51,9 +48,9 @@ const productsPost = async ( req, res = response ) => {
 
     const lastProductID = (products._products[products._products.length - 1].id) + 1;
 
-    const newProduct = [ lastProductID, name, reference, validatorField[0], validatorField[1], validatorField[2] ];
+    const newProduct = [ lastProductID, name, reference, validatorInt[0], validatorInt[1], validatorInt[2] ];
 
-    const productNew = products.addProduct(newProduct);
+    const productNew = await products.addProduct(newProduct);
 
     res.json({
         "success": `El producto ${productNew}, ha sido registrado`
@@ -65,7 +62,22 @@ const productsPatch = async ( req, res = response ) => {
 }
 
 const productsDelete = async ( req, res = response ) => {
-    res.json('Method Delete');
+    const { id } = req.params;
+    
+    const existsBD = await infoDataBaseExistsByID(id);    
+    
+    if(!existsBD) {
+        res.status(400).json({
+            "error": `Producto con código: ${id}, no se encuentra disponible`
+        });
+        return;
+    }
+
+    await products.deleteProduct(existsBD);
+    
+    res.json({
+        "success": `Producto con código: ${existsBD}, ha sido eliminado correctamente`
+    });
 }
 
 module.exports = {

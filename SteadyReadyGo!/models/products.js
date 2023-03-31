@@ -1,10 +1,9 @@
 const fs = require('fs');
 require('./../database/db.json');
-require('./../database/db.txt');
 
 class Products {
     _products   = [];
-    _dbPath     = './SteadyReadyGo!/database/db.json';
+    _dbPath     = 'SteadyReadyGo!/database/db.json';
 
     constructor(){
         this.readDB();
@@ -48,9 +47,6 @@ class Products {
     }
 
     deleteProduct(id = 0){
-        const infoBD = this._products.find( p => p.id === Number(id) );
-        if(!infoBD) return;
-
         this._products = this._products.filter( p => p.id != Number(id) );
         
         this.saveBD();
@@ -66,7 +62,7 @@ class Products {
         console.log(this._dbPath)
 
         fs.writeFileSync( this._dbPath, JSON.stringify(manyRows) );
-        // fs.writeFileSync( 'SteadyReadyGo!/database/db.txt', JSON.stringify(manyRows) );
+        fs.writeFileSync( 'SteadyReadyGo!/database/db.txt', JSON.stringify(manyRows) );
     }
 
     readDB(){

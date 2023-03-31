@@ -26,4 +26,4 @@ public/*.sln
 public/*.sw?
 
 ## Steady, Ready, Go!
-SteadyReadyGo!/database/db.json
+SteadyReadyGo!/database/
