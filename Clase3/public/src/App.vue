@@ -1,44 +1,28 @@
-<!-- <template>
-  <img alt="Vue logo" src="./assets/logo.png">
-  <! <HelloWorld msg="Welcome to Your Vue.js App"/> >
-</template> -->
-
-<!-- <script>
-/* import HelloWorld from './components/HelloWorld.vue' */
-import HomeComponent from './components/HomeComponent.vue';
-
-export default {
-    name: 'App',
-    components: {
-        /* HelloWorld, */
-        HomeComponent
-    }
-}
-</script> -->
-
-<!-- <style>
-/* #app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
-} */
-</style> -->
-
 <template>
-    <div>
-        <header class="space-inter">
-            <div class="container container-flex space-between">
-                <h1 class="logoPage"><span>APP</span>Series</h1>
+    <div class="container index">
+        <div class="row justify-content-center">
+            <div class="col-12 row justify-content-center mb-3">
+                <div class="col-12 col-sm-2 align-self-center">
+                    <img src="./assets/logo.png" alt="Logo VueJS">
+                </div>
+                <div class="col-12 col-sm-2 align-self-center">
+                    <img src="./assets/nodejs.png" alt="Logo NodeJS">
+                </div>
+            </div>
+            <div class="col-9">
+                <h1>Women Who Code • Medellín</h1>
+                <h4>NodeJS from Hero to SuperHero</h4>
+            </div>
+        </div>
+        <header>
+            <div class="">
                 <nav class="custom-wrapper" id="menu">
                     <ul class="container-flex list-unstyled">
                         <li>
                             <router-link to="/" class="text-uppercase">inicio</router-link>
                         </li>
                         <li>
-                            <router-link to="/series" class="text-uppercase">series</router-link>
+                            <router-link to="/contenido" class="text-uppercase">contenido</router-link>
                         </li>
                     </ul>
                 </nav>
@@ -47,3 +31,6 @@ export default {
         <router-view></router-view>
     </div>
 </template>
+<style>
+    h1, h4{ text-shadow: 1px .5px rgb(23, 221, 152); }
+</style>

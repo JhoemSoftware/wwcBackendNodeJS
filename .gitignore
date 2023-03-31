@@ -3,6 +3,8 @@ node_modules/
 .env
 ##Clase2/database/*.json
 Clase3/database/*.json
+## Steady, Ready, Go!
+##SteadyReadyGo!/database/
 
 ## Front App Vue
 public/.DS_Store
@@ -24,6 +26,3 @@ public/*.ntvs*
 public/*.njsproj
 public/*.sln
 public/*.sw?
-
-## Steady, Ready, Go!
-SteadyReadyGo!/database/

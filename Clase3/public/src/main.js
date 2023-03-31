@@ -2,7 +2,7 @@ import { createApp } from 'vue'
 import {createRouter,createWebHashHistory} from 'vue-router';
 import App from './App.vue'
 import HomeComponent from './components/HomeComponent.vue';
-import SeriesComponent from './components/SeriesComponent.vue';
+import ContentComponent from './components/ContentComponent.vue';
 import './assets/css/index.css'
 
 const routes = [
@@ -11,8 +11,8 @@ const routes = [
         component: HomeComponent
     },
     {
-        path: '/series',
-        component: SeriesComponent
+        path: '/contenido',
+        component: ContentComponent
     }
 ]
 

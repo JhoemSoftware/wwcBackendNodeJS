@@ -1,0 +1,44 @@
+{
+    "products": [
+        {
+            "id": 1001,
+            "name": "Classic",
+            "reference": "350 Twinspark",
+            "price": 13000000,
+            "cylinder": 346,
+            "stock": 5
+        },
+        {
+            "id": 1002,
+            "name": "Classic",
+            "reference": "350 Efi",
+            "price": 13000000,
+            "cylinder": 346,
+            "stock": 7
+        },
+        {
+            "id": 1003,
+            "name": "Himalayan",
+            "reference": "410 Efi",
+            "price": 18000000,
+            "cylinder": 411,
+            "stock": 13
+        },
+        {
+            "id": 1004,
+            "name": "Continental",
+            "reference": "650 GT",
+            "price": 22000000,
+            "cylinder": 648,
+            "stock": 8
+        },
+        {
+            "id": 1005,
+            "name": "Interceptor",
+            "reference": "",
+            "price": 22000000,
+            "cylinder": 648,
+            "stock": 9
+        }
+    ]
+}

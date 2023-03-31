@@ -13,6 +13,7 @@ El proyecto está dividido por clases, para levantar el servicio basta con ejecu
 - <b>Clase 1:</b> Introducción a NODE JS, consumo de API (Rick & Morty) y presentación de respuesta en consola.
 - <b>Clase 2:</b> API REST FULL en NODE JS con Express, simulando BD con archivo JSON acerca de una plataforma de "series".
 - <b>Clase 3:</b> Continuación del proyecto anterior pero agregando nuevas "propiedades" en nuestra BD (json) y con interfaz gráfica de usuario.
+- <b>Steady, Ready, Go!:</b> Proyecto de productos (Motocicletas) a la cual se le ha adaptado la App Front-end <b>Vue JS</b> del proyecto <b>Clase 3</b>.<br>Para levantar la app front se debe dirigir a la ruta <code>Clase3/public/</code> y ejecutar el comando <code>npm run serve</code>
 <br><br>
 <h2>Paquetes Instalados</h2>
 <pre>
@@ -24,4 +25,4 @@ El proyecto está dividido por clases, para levantar el servicio basta con ejecu
 "fs":                   "^0.0.1-security",
 "nodemon":              "^2.0.21"
 </pre>
-También es importante instalar<pre>sudo npm install -g json-server</pre>
+También es importante instalar<pre>sudo npm i -g json-server</pre>

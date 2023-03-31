@@ -1,1 +1,1 @@
-require('./SteadyReadyGo!/index');
+require('./SteadyReadyGo/index');
