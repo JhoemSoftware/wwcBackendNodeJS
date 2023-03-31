@@ -39,6 +39,14 @@
             "price": 22000000,
             "cylinder": 648,
             "stock": 9
+        },
+        {
+            "id": 1006,
+            "name": "nombre del producto",
+            "reference": "referencia del producto",
+            "price": 45,
+            "cylinder": 12,
+            "stock": 2
         }
     ]
 }

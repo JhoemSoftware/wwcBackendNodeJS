@@ -53,9 +53,11 @@ const productsPost = async ( req, res = response ) => {
 
     const newProduct = [ lastProductID, name, reference, validatorField[0], validatorField[1], validatorField[2] ];
 
-    const result = await products.addProduct(newProduct);
+    const productNew = products.addProduct(newProduct);
 
-    res.json( result );
+    res.json({
+        "success": `El producto ${productNew}, ha sido registrado`
+    });
 }
 
 const productsPatch = async ( req, res = response ) => {

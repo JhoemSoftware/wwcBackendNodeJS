@@ -4,7 +4,7 @@ require('./../database/db.txt');
 
 class Products {
     _products   = [];
-    _dbPath     = 'SteadyReadyGo!/database/db.json';
+    _dbPath     = './SteadyReadyGo!/database/db.json';
 
     constructor(){
         this.readDB();
@@ -28,7 +28,7 @@ class Products {
         
         this.saveBD();
 
-        return true;
+        return newProduct.name;
     }
 
     editProduct(id = 0, data = []){
@@ -65,8 +65,8 @@ class Products {
 
         console.log(this._dbPath)
 
-        fs.writeFileSync( this.dbPath, JSON.stringify(manyRows) );
-        /* fs.writeFileSync('SteadyReadyGo!/database/db.txt', JSON.stringify(manyRows)); */
+        fs.writeFileSync( this._dbPath, JSON.stringify(manyRows) );
+        // fs.writeFileSync( 'SteadyReadyGo!/database/db.txt', JSON.stringify(manyRows) );
     }
 
     readDB(){
