@@ -4,7 +4,7 @@ node_modules/
 ##Clase2/database/*.json
 Clase3/database/*.json
 ## Steady, Ready, Go!
-##SteadyReadyGo!/database/
+SteadyReadyGo/database/
 
 ## Front App Vue
 public/.DS_Store

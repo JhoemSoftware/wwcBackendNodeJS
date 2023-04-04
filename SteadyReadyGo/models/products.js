@@ -4,6 +4,7 @@ require('./../database/db.json');
 class Products {
     _products   = [];
     _dbPath     = 'SteadyReadyGo/database/db.json';
+    _dbPathTXT  = 'SteadyReadyGo/database/db.txt';
 
     constructor(){
         this.readDB();
@@ -31,15 +32,13 @@ class Products {
     }
 
     editProduct(id = 0, data = []){
-        const product = this._products.find( p => p.id === id );
-        
-        if(!product) return;
+        const product = this._products.find( p => p.id === Number(id) );
 
-        product.name        = data['name'];
-        product.reference   = data['reference'];
-        product.price       = data['price'];
-        product.cylinder    = data['cylinder'];
-        product.stock       = data['stock'];
+        product.name        = data[0];
+        product.reference   = data[1];
+        product.price       = data[2];
+        product.cylinder    = data[3];
+        product.stock       = data[4];
 
         this.saveBD();
 
@@ -60,7 +59,7 @@ class Products {
         };
 
         fs.writeFileSync( this._dbPath, JSON.stringify(manyRows) );
-        fs.writeFileSync( 'SteadyReadyGo/database/db.txt', JSON.stringify(manyRows) );
+        fs.writeFileSync( this._dbPathTXT, JSON.stringify(manyRows) );
     }
 
     readDB(){

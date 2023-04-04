@@ -39,6 +39,54 @@
             "price": 22000000,
             "cylinder": 648,
             "stock": 9
+        },
+        {
+            "id": 1006,
+            "name": "",
+            "reference": "referencia del producto 2",
+            "price": 5,
+            "cylinder": 2,
+            "stock": 2
+        },
+        {
+            "id": 1008,
+            "name": "Rumbler",
+            "reference": "Tiwnspark 350",
+            "price": 15000000,
+            "cylinder": 348,
+            "stock": 5
+        },
+        {
+            "id": 1009,
+            "name": "",
+            "reference": "referencia del producto 2",
+            "price": 5,
+            "cylinder": 2,
+            "stock": 2
+        },
+        {
+            "id": 1010,
+            "name": "",
+            "reference": "referencia del producto 2",
+            "price": 5,
+            "cylinder": 2,
+            "stock": 2
+        },
+        {
+            "id": 1011,
+            "name": "df",
+            "reference": "referencia del producto 2",
+            "price": 5,
+            "cylinder": 2,
+            "stock": 2
+        },
+        {
+            "id": 1012,
+            "name": "dfr",
+            "reference": "rew",
+            "price": 5,
+            "cylinder": 2,
+            "stock": 2
         }
     ]
 }

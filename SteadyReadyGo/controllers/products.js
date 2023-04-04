@@ -1,10 +1,11 @@
 const { response } = require("express");
 
 const { infoDataBaseExistsByID, infoDataBaseExistsByName } = require('../middlewares/db-validations');
-const { validateInteger } = require('./../middlewares/validator-fields');
+const { validateInteger, validateString } = require('./../middlewares/validator-fields');
 
 const Products = require('./../models/products');
 const products = new Products();
+
 
 const productsGet = ( req, res = response ) => res.json({ "products": products._products });
 
@@ -28,7 +29,6 @@ const productsPost = async ( req, res = response ) => {
     const { name, reference, price, cylinder, stock } = req.body;
 
     const existsBD = await infoDataBaseExistsByName(name);
-
     if(existsBD){
         res.status(400).json({
             "error": `El producto ${name} ya se encuentra registrado`
@@ -37,8 +37,15 @@ const productsPost = async ( req, res = response ) => {
     }
 
     const validatorInt = await validateInteger(price, cylinder, stock);
-
     if(!validatorInt) {
+        res.status(400).json({
+            "error": "La información enviada es incorrecta, favor validar"
+        });
+        return;
+    }
+
+    const validatorStr = await validateString(name, reference);
+    if(!validatorStr) {
         res.status(400).json({
             "error": "La información enviada es incorrecta, favor validar"
         });
@@ -57,14 +64,51 @@ const productsPost = async ( req, res = response ) => {
 }
 
 const productsPatch = async ( req, res = response ) => {
-    res.json('Method Patch');
+    const { id } = req.params;
+    
+    const existsBD = await infoDataBaseExistsByID(id);
+    if(!existsBD) {
+        res.status(400).json({
+            "error": `Producto con código: ${id}, no se encuentra disponible`
+        });
+        return;
+    }
+
+    const {
+        name,
+        reference,
+        price,
+        cylinder,
+        stock
+    } = req.body;
+
+    const validatorInt = await validateInteger(price, cylinder, stock);
+    if(!validatorInt) {
+        res.status(400).json({
+            "error": "La información enviada es incorrecta, favor validar"
+        });
+        return;
+    }
+
+    const validatorStr = await validateString(name, reference);
+    if(!validatorStr) {
+        res.status(400).json({
+            "error": "La información enviada es incorrecta, favor validar"
+        });
+        return;
+    }
+
+    const data = [ name, reference, price, cylinder, stock ];
+
+    const productEdit = await products.editProduct(id, data);
+    
+    res.json({ "product": productEdit });
 }
 
 const productsDelete = async ( req, res = response ) => {
     const { id } = req.params;
     
-    const existsBD = await infoDataBaseExistsByID(id);    
-    
+    const existsBD = await infoDataBaseExistsByID(id);       
     if(!existsBD) {
         res.status(400).json({
             "error": `Producto con código: ${id}, no se encuentra disponible`
@@ -73,7 +117,7 @@ const productsDelete = async ( req, res = response ) => {
     }
 
     await products.deleteProduct(existsBD);
-    
+
     res.json({
         "success": `Producto con código: ${existsBD}, ha sido eliminado correctamente`
     });
