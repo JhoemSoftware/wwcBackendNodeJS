@@ -1,30 +1,45 @@
 <template>
-    <div class="row justify-content-around">
-        <div class="col-9 col-md-5 col-lg-3 mb-5" v-for="data in result" v-bind:key="data.id">
-            <div class="card">
-                <div class="card-body">
-                    <img src="./../assets/picture.png" alt="">
-                    <h3 class="card-title">{{ data.name }} • {{ data.reference }}</h3>
-                    <p class="card-text">
-                        <b>Cilindraje: </b> {{ data.cylinder }} cm<sup>3</sup> <br />
-                        <b>Precio: </b>$ {{ data.price }} <br />
-                        <b>Unidades disponibles: </b> {{ data.stock }}
-                    </p>
-                    <div class="row justify-content-around">
-                        <div class="col">
-                            <button type="button" class="btn btn-secondary">
-                                <i class="fa-solid fa-pen"></i>
-                            </button>
-                        </div>
-                        <div class="col">
-                            <button type="button" class="btn btn-danger" @click="deleted(data)">
-                                <i class="fa-solid fa-trash"></i>
-                            </button>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
+    <div class="container">
+        <table class="table table-dark table-hover">
+            <thead>
+                <tr>
+                    <th scope="col">Código</th>
+                    <th scope="col">Nombre</th>
+                    <th scope="col">Referencia</th>
+                    <th scope="col">Cilindraje</th>
+                    <th scope="col">Precio</th>
+                    <th scope="col">Unidades Disponibles</th>
+                    <th></th>
+                    <th></th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr v-for="data in result" v-bind:key="data.id">
+                    <th scope="row">{{ data.id }}</th>
+                    <td>{{ data.name }}</td>
+                    <td>{{ data.reference }}</td>
+                    <td>{{ data.cylinder }}</td>
+                    <td>$ {{ data.price }}</td>
+                    <td>{{ data.stock }}</td>
+                    <td>
+                        <button type="button" class="btn btn-primary">
+                            <i class="fa-solid fa-eye"></i>
+                        </button>
+                    </td>
+                    <td>
+                        <button type="button" class="btn btn-secondary">
+                            <i class="fa-solid fa-pen"></i>
+                        </button>
+                    </td>
+                    <td>
+                        <button type="button" class="btn btn-danger" @click="deleted(data)">
+                            <i class="fa-solid fa-trash"></i>
+                        </button>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
     </div>
 </template>
 <script>
@@ -111,11 +126,3 @@ export default {
     }
 }
 </script>
-<style>
-.card img {
-    width: 100%;
-    height: auto;
-    max-width: 30vmin;
-    border-radius: 20px;
-}
-</style>

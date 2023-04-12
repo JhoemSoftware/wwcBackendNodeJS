@@ -1,5 +1,5 @@
 <p align="center">
-    <img src="https://scontent-bog1-1.xx.fbcdn.net/v/t1.6435-9/31793520_1814258062212959_3177039857776066560_n.jpg?_nc_cat=108&ccb=1-7&_nc_sid=09cbfe&_nc_eui2=AeF-oA48lJTjtsfQPSe3wkZnB6xKoG9LXWQHrEqgb0tdZFTPFEgyXYuw6wBpIfym8PtuWjzwoQrFV93dKuP81uqd&_nc_ohc=_IRGo7rGuAMAX9Q4VLf&_nc_ht=scontent-bog1-1.xx&oh=00_AfAwxDHNrm6P4s6YS77m6NsDk7dov8t6UhGuD4zpQ8-6XA&oe=64340B3D" width="200" height="150">
+    <img src="https://pbs.twimg.com/profile_images/1077983059121790976/mVP8DwV5_400x400.jpg" width="200" height="150">
 </p>
 
 <h1 align=center>Women Who Code Medellín</h1>
@@ -7,13 +7,13 @@
     <img src="https://cdn.icon-icons.com/icons2/2107/PNG/512/file_type_node_icon_130301.png" width="40" height="35">
 </p>
 <b>Curso de Backend en Node JS (From HERO to SUPER HERO)</b> de la comunidad Women Who Code Medellín. 😎<br>
-El proyecto está dividido por clases, para levantar el servicio basta con ejecutar el comando <code>npm start</code> y actualizar la ruta en el archivo <b>app.js</b><br><br>
-<h2 align="center">Contenido de clases</h2>
+El proyecto está dividido por clases, para levantar el servicio basta con ejecutar el comando <code>npm start</code> y actualizar el path en el archivo <b>app.js</b><br><br>
+<h2 align="center">Contenido</h2>
 
-- <b>Clase 1:</b> Introducción a NODE JS, consumo de API (Rick & Morty) y presentación de respuesta en consola.
-- <b>Clase 2:</b> API REST FULL en NODE JS con Express, simulando BD con archivo JSON acerca de una plataforma de "series".
-- <b>Clase 3:</b> Continuación del proyecto anterior pero agregando nuevas "propiedades" en nuestra BD (json) y con interfaz gráfica de usuario.
-- <b>Steady, Ready, Go!:</b> Proyecto de productos (Motocicletas) a la cual se le ha adaptado la App Front-end <b>Vue JS</b> del proyecto <b>Clase 3</b>.<br>Para levantar la app front se debe dirigir a la ruta <code>Clase3/public/</code> y ejecutar el comando <code>npm run serve</code>
+- <b>Clase 1 :</b> Introducción a NODE JS, consumo de API (Rick & Morty) y presentación de respuesta en consola.
+- <b>Clase 2 :</b> API REST FULL en NODE JS con Express, simulando BD con archivo JSON acerca de una plataforma de "series".
+- <b>Clase 3 :</b> Continuación del proyecto anterior pero agregando nuevas "propiedades" en nuestra BD (json)
+- <b>Steady, Ready, Go! :</b> Proyecto de productos (Motocicletas). API Rest Full con simulación BD (json) copia en plano (txt) y también con interfaz App Front-end <b>Vue JS</b>.<br>Para levantar el front, se debe dirigir hacia el path <code>public/</code> y ejecutar el comando <code>npm run serve</code>
 <br><br>
 <h2>Paquetes Instalados</h2>
 <pre>

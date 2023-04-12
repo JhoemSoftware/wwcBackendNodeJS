@@ -1,0 +1,38 @@
+:root {
+    --color-back: #07113b;
+    --color-back-second: rgb(23, 221, 152);
+    --color-font-main: #e5fcf5;
+    --color-font-second: #4cf6f3;
+}
+
+html {
+    min-height: 100%;
+}
+
+body {
+    padding: 2vmin;
+    text-align: center;
+    background: radial-gradient( var(--color-back-second) 1%, var(--color-back) );
+    color: var(--color-font-main);
+    font-family: sans-serif;
+}
+
+.index img {
+    filter: grayscale(.3);
+    width: 10vmin;
+}
+
+a {
+    text-decoration: none;
+    color: var(--color-font-second);
+    text-transform: capitalize;
+    letter-spacing: 2px;
+}
+
+.nav-item {
+    margin: 3vmin;
+}
+
+.table {
+    color: var(--color-font-main);
+}
