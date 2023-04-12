@@ -66,7 +66,7 @@ const productsPost = async ( req, res = response ) => {
 const productsPatch = async ( req, res = response ) => {
     const { id } = req.params;
     
-    const existsBD = await infoDataBaseExistsByID(id);
+    let existsBD = await infoDataBaseExistsByID(id);
     if(!existsBD) {
         res.status(400).json({
             "error": `Producto con código: ${id}, no se encuentra disponible`
@@ -81,6 +81,14 @@ const productsPatch = async ( req, res = response ) => {
         cylinder,
         stock
     } = req.body;
+    
+    existsBD = await infoDataBaseExistsByName(name);
+    if(existsBD){
+        res.status(400).json({
+            "error": `El producto ${name} ya se encuentra registrado`
+        });
+        return;
+    }
 
     const validatorInt = await validateInteger(price, cylinder, stock);
     if(!validatorInt) {
