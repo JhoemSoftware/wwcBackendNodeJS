@@ -17,9 +17,17 @@ body {
     font-family: sans-serif;
 }
 
-.index img {
-    filter: grayscale(.3);
-    width: 10vmin;
+.home{
+    text-shadow: 1px .5px var(--color-back);
+    font-size: x-large;
+}
+
+.home img {
+    width: 30vmin;
+    box-shadow: -10px -5px 50px 1px var(--color-back);
+    box-shadow: rgba(0, 0, 0, 0.45) 0px 15px 20px -20px;
+    padding-bottom: 1vmin;
+    animation: flotante 5s infinite;
 }
 
 a {
@@ -35,4 +43,19 @@ a {
 
 .table {
     color: var(--color-font-main);
+    margin: 0 auto;
+}
+
+@keyframes flotante {
+    0%{
+        transform: translateY(4px);
+        box-shadow: rgba(0, 0, 0, 0.45) 0px 15px 20px -20px;
+    }
+    50%{
+        transform: translateY(8px);
+        box-shadow: rgba(0, 0, 0, 0.45) 0px 30px 20px -20px;
+    }
+    100%{
+        transform: translateY(2px);
+    }
 }
