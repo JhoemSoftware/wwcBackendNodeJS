@@ -1,6 +1,9 @@
 <template>
     <div class="container">
-        <table class="table table-dark table-hover">
+        <button type="button" class="btn btn-success">
+            <i class="fa-solid fa-plus"></i>
+        </button>
+        <table class="table table-dark table-hover mt-3">
             <thead>
                 <tr>
                     <th scope="col">Código</th>

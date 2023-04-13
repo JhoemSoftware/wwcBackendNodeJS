@@ -12,22 +12,14 @@ html {
 body {
     padding: 2vmin;
     text-align: center;
-    background: radial-gradient( var(--color-back-second) 1%, var(--color-back) );
+    background: radial-gradient(var(--color-back-second), var(--color-back));
     color: var(--color-font-main);
     font-family: sans-serif;
 }
 
-.home{
+.home {
     text-shadow: 1px .5px var(--color-back);
-    font-size: x-large;
-}
-
-.home img {
-    width: 30vmin;
-    box-shadow: -10px -5px 50px 1px var(--color-back);
-    box-shadow: rgba(0, 0, 0, 0.45) 0px 15px 20px -20px;
-    padding-bottom: 1vmin;
-    animation: flotante 5s infinite;
+    font-size: large;
 }
 
 a {
@@ -35,10 +27,20 @@ a {
     color: var(--color-font-second);
     text-transform: capitalize;
     letter-spacing: 2px;
+    transition: all .3s ease-in-out;
+}
+
+a:hover{
+    color: var(--color-font-main);
 }
 
 .nav-item {
-    margin: 3vmin;
+    margin: 2vmin;
+}
+
+.btn-success {
+    background: var(--color-font-main);
+    color: var(--color-font-second);
 }
 
 .table {
@@ -46,16 +48,39 @@ a {
     margin: 0 auto;
 }
 
-@keyframes flotante {
-    0%{
-        transform: translateY(4px);
-        box-shadow: rgba(0, 0, 0, 0.45) 0px 15px 20px -20px;
+.home img {
+    transform: translateZ(0);
+    /* background-color: #05ff97; */ /* 36f7a6 */
+    width: 20vmin;
+    border-radius: 20%;
+    padding: 2vmin;
+}
+
+#imgNode{
+    animation: upCard 4s infinite;
+}
+
+#imgJS{
+    animation: upCard 4.5s infinite;
+}
+
+#imgVue{
+    animation: upCard 5s infinite;
+}
+
+@keyframes upCard {
+    10% {
+        transform: translateY(-4px);
+        box-shadow: rgba(0, 0, 0, 0.45) 0px 5px 5px -5px;
     }
-    50%{
-        transform: translateY(8px);
-        box-shadow: rgba(0, 0, 0, 0.45) 0px 30px 20px -20px;
+
+    50% {
+        transform: translateY(-8px);
+        box-shadow: rgba(0, 0, 0, 0.45) 1px 20px 10px -5px;
+        background-color: #0eff9b;
     }
-    100%{
-        transform: translateY(2px);
+
+    100% {
+        transform: translateY(0px);
     }
 }
