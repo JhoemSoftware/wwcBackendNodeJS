@@ -19,7 +19,7 @@ body {
 
 .home {
     text-shadow: 1px .5px var(--color-back);
-    font-size: large;
+    font-size: x-large;
 }
 
 a {
@@ -38,19 +38,17 @@ a:hover{
     margin: 2vmin;
 }
 
-.btn-success {
-    background: var(--color-font-main);
-    color: var(--color-font-second);
-}
-
 .table {
     color: var(--color-font-main);
     margin: 0 auto;
 }
 
+.modal-content{
+    background-color: var(--color-back-second);
+}
+
 .home img {
     transform: translateZ(0);
-    /* background-color: #05ff97; */ /* 36f7a6 */
     width: 20vmin;
     border-radius: 20%;
     padding: 2vmin;
@@ -77,7 +75,7 @@ a:hover{
     50% {
         transform: translateY(-8px);
         box-shadow: rgba(0, 0, 0, 0.45) 1px 20px 10px -5px;
-        background-color: #0eff9b;
+        background-color: #0eff9b; /* 36f7a6 */
     }
 
     100% {
