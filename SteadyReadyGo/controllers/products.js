@@ -6,8 +6,7 @@ const { validateInteger, validateString } = require('./../middlewares/validator-
 const Products = require('./../models/products');
 const products = new Products();
 
-
-const productsGet = ( req, res = response ) => res.json({ "products": products._products });
+const productsGet = ( _, res = response ) => res.json({ "products": products._products });
 
 const productsGetByID = async ( req, res = response ) => {
     const { id } = req.params;
