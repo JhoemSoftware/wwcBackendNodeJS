@@ -1,41 +1,55 @@
 const { response } = require('express');
 
-const Product = require('./../models/product');
-const products = new Product();
+// const { existsNameProduct, existsProductByID } = require('../middlewares/db-validators');
 
-const productsGet = ( _, res = response ) => res.json(products);
+const Product = require('./../models/product');
+
+const productsGet = async ( _, res = response ) => {
+    const products = await Product.find();
+    res.json(products);
+}
 
 const productsGetByID = async ( req, res = response ) => {
     const { id } = req.params;
-    res.json({
-        id,
-        msg: 'productsGetByID Controller'
+
+    const productDB = await Product.findById(id);
+    console.log(productDB);
+    if(!productDB) return res.status(400).json({
+        "error": `No existe el producto con código: ${id}`
     });
+
+    res.json( productDB );
 }
 
 const productsPost = async ( req, res = response ) => {
-    res.json({
-        // id,
-        msg: 'productsPost Controller'
-    });
+    const { name, description, price, stock, category } = req.body;
+
+    const productNew = new Product({ name, description, price, stock, category });
+
+    await productNew.save();
+
+    res.json( productNew );
 }
 
 const productsPatch = async ( req, res = response ) => {
-    res.json({
-        // id,
-        msg: 'productsPatch Controller'
-    });
+    const { id } = req.params;
+    const { description, price, stock, category } = req.body;
+    const data = { description, price, stock, category }
+    const productToUpdate = await Product.findByIdAndUpdate(id, data)
+
+    res.json( productToUpdate );
 }
 
 const productsDelete = async ( req, res = response ) => {
-    res.json({
-        // id,
-        msg: 'productsDelete Controller'
-    });
+    const { id } = req.params;
+
+    const productToDelete = await Product.findByIdAndDelete(id);
+
+    res.json( productToDelete );
 }
 
 
-module.exports ={
+module.exports = {
     productsGet,
     productsGetByID,
     productsPost,

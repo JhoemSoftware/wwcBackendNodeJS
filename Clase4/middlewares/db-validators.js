@@ -1,9 +1,9 @@
 const Product = require('../models/product');
 
-/* const existeEmail = async (email = '') => {
-    const emailBD = await Product.findOne({email});    
-    if(emailBD) throw new Error('Ya se encuentra registrado el email en otro usuario');
-} */
+const existsNameProduct = async (name = '') => {
+    const nameBD = await Product.findOne({ name });    
+    if(nameBD) throw new Error('Ya se encuentra registrado el Nombre en otro producto');
+}
 
 const existsProductByID = async (id = '') => {
     console.log(id);
@@ -12,6 +12,6 @@ const existsProductByID = async (id = '') => {
 }
 
 module.exports = {
-    // existeEmail,
+    existsNameProduct,
     existsProductByID
 }

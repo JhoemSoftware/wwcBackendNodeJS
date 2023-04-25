@@ -3,7 +3,7 @@ const { Schema, model } = require('mongoose');
 const ProductsSchema = Schema({
     name: {
         type: String,
-        required: [true, 'El Nombre del producto es obligatorio']
+        required: true
     },
     description: {
         type: String,
@@ -11,15 +11,16 @@ const ProductsSchema = Schema({
     },
     price: {
         type: Number,
-        required: [true, 'El Precio del producto es obligatorio']
+        required: true
     },
-    sotck: {
+    stock: {
         type: Number,
-        required: [true, 'Las Unidades disponibles del producto son obligatorias']
+        required: false,
+        default: 0
     },
     category: {
-        type: Number,
-        required: [true, 'La Categoría del producto es obligatorio']
+        type: String,
+        required: true
     }
 });
 
