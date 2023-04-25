@@ -1,6 +1,6 @@
 const { response } = require('express');
 
-// const { existsNameProduct, existsProductByID } = require('../middlewares/db-validators');
+const { existsNameProduct, existsProductByID } = require('../middlewares/db-validators');
 
 const Product = require('./../models/product');
 
@@ -12,13 +12,16 @@ const productsGet = async ( _, res = response ) => {
 const productsGetByID = async ( req, res = response ) => {
     const { id } = req.params;
 
-    const productDB = await Product.findById(id);
-    console.log(productDB);
-    if(!productDB) return res.status(400).json({
-        "error": `No existe el producto con código: ${id}`
-    });
+    const product = existsProductByID(id);
 
-    res.json( productDB );
+    product
+        .then((product) => res.json({ product }))
+        .catch(() => {
+            res.status(400).json({
+                "error": `No existe producto con el código: ${id}`
+            });
+            return;
+        })
 }
 
 const productsPost = async ( req, res = response ) => {
@@ -34,8 +37,10 @@ const productsPost = async ( req, res = response ) => {
 const productsPatch = async ( req, res = response ) => {
     const { id } = req.params;
     const { description, price, stock, category } = req.body;
+
     const data = { description, price, stock, category }
-    const productToUpdate = await Product.findByIdAndUpdate(id, data)
+
+    const productToUpdate = await Product.findByIdAndUpdate(id, data);
 
     res.json( productToUpdate );
 }

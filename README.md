@@ -7,14 +7,16 @@
     <img src="https://cdn.icon-icons.com/icons2/2107/PNG/512/file_type_node_icon_130301.png" width="40" height="35">
 </p>
 <b>Curso de Backend en Node JS (From HERO to SUPER HERO)</b> de la comunidad Women Who Code Medellín. 😎<br>
-El proyecto está dividido por clases, para levantar el servicio basta con ejecutar el comando <code>npm start</code> y actualizar el path en el archivo <b>app.js</b><br><br>
+El proyecto está dividido por clases, para levantar el servicio basta con ejecutar el comando <code>npm start</code> y actualizar el path en el archivo <b>app.js</b><br><br><hr>
 <h2 align="center">Contenido</h2>
 
-- <b>Clase 1 :</b> Introducción a NODE JS, consumo de API (Rick & Morty) y presentación de respuesta en consola.
-- <b>Clase 2 :</b> API REST FULL en NODE JS con Express, simulando BD con archivo JSON acerca de una plataforma de "series".
-- <b>Clase 3 :</b> Continuación del proyecto anterior pero agregando nuevas "propiedades" en nuestra BD (json)
-- <b>Steady, Ready, Go! :</b> Proyecto de productos (Motocicletas). API Rest Full con simulación BD (json) copia en plano (txt) y también con interfaz App Front-end <b>Vue JS</b>.<br>Para levantar el front, se debe dirigir hacia el path <code>public/</code> y ejecutar el comando <code>npm run serve</code>
-<br><br>
+- <b>Clase 1 :</b> Introducción a NODE JS, consumo de API (Rick & Morty) y presentación de respuesta en consola.<br><br>
+- <b>Clase 2 :</b> API REST FULL en NODE JS con Express, simulando BD con archivo JSON acerca de una plataforma de "series".<br>
+<br>
+- <b>Clase 3 :</b> Continuación del proyecto anterior pero agregando nuevas "propiedades" en nuestra BD (json)<br><br>
+- <b>Steady, Ready, Go! :</b> Proyecto de productos (Motocicletas). API Rest Full con simulación BD (json) con copia en plano (txt)<br><br>
+- <b>Clase 4:</b> Proyecto basado en Steady, ready, go! pero ya con una conexión a MongoDB
+<br><br><hr>
 <h2>Paquetes Instalados</h2>
 <pre>
 "colors":               "^1.4.0",

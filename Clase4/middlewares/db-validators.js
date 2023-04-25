@@ -6,9 +6,11 @@ const existsNameProduct = async (name = '') => {
 }
 
 const existsProductByID = async (id = '') => {
-    console.log(id);
-    const productBD = await Product.findById(id);    
-    if(!productBD) throw new Error('No existe el Producto con el identificador enviado');
+    const productDB = await Product.findById(id);
+    
+    if(!productDB) return;
+    
+    return productDB;
 }
 
 module.exports = {
