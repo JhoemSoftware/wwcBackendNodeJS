@@ -1,25 +1,38 @@
 const { response } = require('express');
-
 const { existsNameProduct, existsProductByID } = require('../middlewares/db-validators');
 
 const Product = require('./../models/product');
 
+
+/* API Rest Methods */
 const productsGet = async ( _, res = response ) => {
     const products = await Product.find();
+
     res.json(products);
 }
 
-const productsGetByID = async ( req, res = response ) => {
+const productsGetByID = ( req, res = response ) => {
     const { id } = req.params;
 
     const product = existsProductByID(id);
-
+    
     product
-        .then((product) => res.json({ product }))
+        .then((product) => {
+            if (!product) {
+                res.status(400).json({
+                    "error": `El Producto con el código: ${id} , no se encuentra disponible`
+                });
+
+                return;
+            }
+
+            res.json({ product })
+        })
         .catch(() => {
             res.status(400).json({
-                "error": `No existe producto con el código: ${id}`
+                "error": `El Producto con el código: ${id} , no se encuentra disponible`
             });
+
             return;
         })
 }
@@ -45,14 +58,27 @@ const productsPatch = async ( req, res = response ) => {
     res.json( productToUpdate );
 }
 
-const productsDelete = async ( req, res = response ) => {
+const productsDelete = ( req, res = response ) => {
     const { id } = req.params;
+    
+    const product = existsProductByID(id);
 
-    const productToDelete = await Product.findByIdAndDelete(id);
+    product
+        .then(async ({ id, name }) => {
+            await Product.findByIdAndDelete(id);
 
-    res.json( productToDelete );
+            res.json({
+                "success": `El producto ${name}, ha sido eliminado`
+            });
+        })
+        .catch(() => {
+            res.status(400).json({
+                "error": `El Producto con el código ${id} no se encuentra disponible`
+            });
+
+            return;
+        })
 }
-
 
 module.exports = {
     productsGet,
