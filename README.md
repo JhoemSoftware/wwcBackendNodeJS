@@ -14,7 +14,7 @@ El proyecto está dividido por clases, para levantar el servicio basta con ejecu
 - <b>Clase 2 :</b> API REST FULL en NODE JS con Express, simulando BD con archivo JSON acerca de una plataforma de "series"<br><br>
 - <b>Clase 3 :</b> Continuación del proyecto anterior pero agregando nuevas "propiedades" en nuestra BD (json)<br><br>
 - <b>Steady, Ready, Go! :</b> Proyecto de productos (Motocicletas). API Rest Full con simulación BD (json) con copia en plano (txt)<br><br>
-- <b>Clase 4:</b> Proyecto basado en Steady, ready, go! pero ya con una conexión a MongoDB
+- <b>Clase 4 :</b> Proyecto basado en Steady, ready, go! pero ya con una conexión a MongoDB, adicional cuenta con ruta <b>Health Check</b> en la ruta <code>http://localhost:8088/api/v1/products/health/</code>. Para probarlo, basta con actualizar la ruta en el modelo <b>Server</b>
 <br><br><hr>
 <h2>Paquetes Instalados</h2>
 <pre>

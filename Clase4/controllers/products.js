@@ -1,7 +1,7 @@
 const { response } = require('express');
 const { existsNameProduct, existsProductByID } = require('../middlewares/db-validators');
 
-const Product = require('./../models/product');
+const Product = require('../models/product');
 
 
 /* API Rest Methods */
@@ -57,7 +57,7 @@ const productsPost = async ( req, res = response ) => {
     res.json( productNew );
 }
 
-const productsPatch = async ( req, res = response ) => {
+const productsPatch = ( req, res = response ) => {
     const { id } = req.params;
 
     const product = existsProductByID(id);
