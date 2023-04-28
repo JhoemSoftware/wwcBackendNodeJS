@@ -1,8 +1,11 @@
 const Product = require('../models/product');
 
 const existsNameProduct = async (name = '') => {
-    const nameBD = await Product.findOne({ name });    
-    if(nameBD) throw new Error('Ya se encuentra registrado el Nombre en otro producto');
+    const nameBD = await Product.findOne({ name });
+    
+    if(nameBD) return false;
+
+    return true;
 }
 
 const existsProductByID = async (id = '') => {

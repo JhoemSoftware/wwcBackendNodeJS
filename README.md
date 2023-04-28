@@ -10,9 +10,8 @@
 El proyecto está dividido por clases, para levantar el servicio basta con ejecutar el comando <code>npm start</code> y actualizar el path en el archivo <b>app.js</b><br><br><hr>
 <h2 align="center">Contenido</h2>
 
-- <b>Clase 1 :</b> Introducción a NODE JS, consumo de API (Rick & Morty) y presentación de respuesta en consola.<br><br>
-- <b>Clase 2 :</b> API REST FULL en NODE JS con Express, simulando BD con archivo JSON acerca de una plataforma de "series".<br>
-<br>
+- <b>Clase 1 :</b> Introducción a NODE JS, consumo de API (Rick & Morty) y presentación de respuesta en consola<br><br>
+- <b>Clase 2 :</b> API REST FULL en NODE JS con Express, simulando BD con archivo JSON acerca de una plataforma de "series"<br><br>
 - <b>Clase 3 :</b> Continuación del proyecto anterior pero agregando nuevas "propiedades" en nuestra BD (json)<br><br>
 - <b>Steady, Ready, Go! :</b> Proyecto de productos (Motocicletas). API Rest Full con simulación BD (json) con copia en plano (txt)<br><br>
 - <b>Clase 4:</b> Proyecto basado en Steady, ready, go! pero ya con una conexión a MongoDB

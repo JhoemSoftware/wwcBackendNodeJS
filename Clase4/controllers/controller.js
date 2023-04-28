@@ -20,7 +20,7 @@ const productsGetByID = ( req, res = response ) => {
         .then((product) => {
             if (!product) {
                 res.status(400).json({
-                    "error": `El Producto con el código: ${id} , no se encuentra disponible`
+                    "error": `El Producto con el código '${id}' no se encuentra disponible`
                 });
 
                 return;
@@ -30,7 +30,7 @@ const productsGetByID = ( req, res = response ) => {
         })
         .catch(() => {
             res.status(400).json({
-                "error": `El Producto con el código: ${id} , no se encuentra disponible`
+                "error": `El Producto con el código '${id}' no se encuentra disponible`
             });
 
             return;
@@ -39,6 +39,16 @@ const productsGetByID = ( req, res = response ) => {
 
 const productsPost = async ( req, res = response ) => {
     const { name, description, price, stock, category } = req.body;
+
+    const nameProductNew = await existsNameProduct(name);
+
+    if (!nameProductNew) {
+        res.status(400).json({
+            "error": `El Producto con el nombre '${name}' ya se encuentra registrado`
+        });
+
+        return;
+    }
 
     const productNew = new Product({ name, description, price, stock, category });
 
@@ -49,13 +59,37 @@ const productsPost = async ( req, res = response ) => {
 
 const productsPatch = async ( req, res = response ) => {
     const { id } = req.params;
-    const { description, price, stock, category } = req.body;
 
-    const data = { description, price, stock, category }
+    const product = existsProductByID(id);
 
-    const productToUpdate = await Product.findByIdAndUpdate(id, data);
+    product
+    .then(async (product) => {
+        if (!product) {
+            res.status(400).json({
+                "error": `El Producto con el código '${id}' no se encuentra disponible`
+            });
 
-    res.json( productToUpdate );
+            return;
+        }
+
+        const { description, price, stock, category } = req.body;
+    
+        const data = { description, price, stock, category }
+    
+        const productToUpdate = await Product.findByIdAndUpdate(id, data);
+    
+        res.json({
+            "success": `El producto '${productToUpdate.name}' ha sido Actualizado`
+        });
+    })
+    .catch(() => {
+        res.status(400).json({
+            "error": `El Producto con el código '${id}' no se encuentra disponible`
+        });
+
+        return;
+    })
+
 }
 
 const productsDelete = ( req, res = response ) => {
@@ -68,12 +102,12 @@ const productsDelete = ( req, res = response ) => {
             await Product.findByIdAndDelete(id);
 
             res.json({
-                "success": `El producto ${name}, ha sido eliminado`
+                "success": `El producto '${name}' ha sido eliminado`
             });
         })
         .catch(() => {
             res.status(400).json({
-                "error": `El Producto con el código ${id} no se encuentra disponible`
+                "error": `El Producto con el código '${id}' no se encuentra disponible`
             });
 
             return;
