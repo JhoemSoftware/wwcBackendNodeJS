@@ -1,3 +1,6 @@
+<p align="center"><img src="https://cdn.icon-icons.com/icons2/2107/PNG/512/file_type_mongo_icon_130383.png" width="90">
+</p>
+
 # MongoDB Shell Commands Cheat Sheet.
 
 This is a Cheat Sheet for interacting with the Mongo Shell ( mongo on your command line). This is for MongoDB Community Edition.

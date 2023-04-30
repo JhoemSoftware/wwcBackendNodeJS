@@ -1,4 +1,6 @@
-# from zero to superhero
+<p align="center"><img src="https://cdn.icon-icons.com/icons2/2415/PNG/512/postgresql_plain_wordmark_logo_icon_146390.png" width="100"></p>
+
+# PostgreSQL guide
 
 ---------
 Guía de PostgreSQL para la creación y manipulación de una base de datos de productos
