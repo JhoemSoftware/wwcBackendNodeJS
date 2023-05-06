@@ -3,14 +3,14 @@ const cors = require('cors');
 require('dotenv').config();
 require('colors');
 
-const { sequelize } = require('./../settings/');
+const { dbConn } = require('./../utils/');
 
 class Server {
     constructor(){
         this.app            = express();
         this.host           = 'http://localhost';
-        this.urlPath        = '/api/v1/products/';
-        this.urlPathHealth  = '/api/v1/products/health/';
+        this.urlPath        = '/api/v1/';
+        this.urlPathHealth  = '/api/v1/health/';
         this.port           = process.env.PORT;
 
         this.connDB();
@@ -35,8 +35,7 @@ class Server {
     }
     
     routes(){
-        this.app.use(this.urlPath, require('../routes/products'));
-        // this.app.use(this.urlPathHealth, require('../routes/health'));
+        this.app.use(this.urlPath, require('../routes/'));
     }
 }
 
