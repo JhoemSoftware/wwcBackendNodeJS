@@ -1,23 +1,9 @@
 const { Router } = require('express');
 
-const {
-    productsGet,
-    productsGetByID,
-    productsPost,
-    productsPatch,
-    productsDelete
-} = require('../controllers/products');
-
 const router = Router();
 
-router.get('/',);
-
-// const { healthCheck, welcomePage } = require('./../controllers/');
-
-/* router
-    // .get('/', serviceGet)
-    .get('/health', serviceGet)
+router
     .use('/products', require('./products'))
-    .use('/users', require('./user'));
- */
+    .use('/health', require('./health'));
+
 module.exports = router;
