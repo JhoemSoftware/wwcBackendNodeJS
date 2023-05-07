@@ -7,6 +7,7 @@ fetchApi('https://rickandmortyapi.com/api/character')
         console.log('==================================='.bgGreen);
         console.log(' Node JS • Women Who Code Medellín'.yellow);
         console.log('==================================='.bgGreen);
+
         for (let index = 0; index < data.results.length; index++) {
             let {id, name, species, gender} = data.results[index];
             species === 'Human' ? species = 'Persona 🌎' : species = 'Alien 👽'

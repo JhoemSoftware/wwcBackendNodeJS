@@ -1,11 +1,23 @@
-const { Router } = require("express");
+const { Router } = require('express');
+
+const {
+    productsGet,
+    productsGetByID,
+    productsPost,
+    productsPatch,
+    productsDelete
+} = require('../controllers/products');
+
 const router = Router();
-const { healthCheck, welcomePage } = require("../controllers/appController");
 
-router
-    .get("/", welcomePage)
-    .get("/health", healthCheck)
-    .use("/v1/products", require("./productsRoute"))
+router.get('/',);
+
+// const { healthCheck, welcomePage } = require('./../controllers/');
+
+/* router
+    // .get('/', serviceGet)
+    .get('/health', serviceGet)
+    .use('/products', require('./products'))
     .use('/users', require('./user'));
-
+ */
 module.exports = router;

@@ -15,7 +15,7 @@ class Server {
 
         this.connDB();
         this.middlewares();
-        // this.routes();
+        this.routes();
     }
 
     listen(){
@@ -35,7 +35,7 @@ class Server {
     }
     
     routes(){
-        this.app.use(this.urlPath, require('../routes/'));
+        this.app.use(this.urlPath, require('./../routes'));
     }
 }
 

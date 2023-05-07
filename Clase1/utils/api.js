@@ -7,4 +7,4 @@ const fetchApi = async (url) => {
     }
 }
 
-module.exports = fetchApi
+module.exports = fetchApi;

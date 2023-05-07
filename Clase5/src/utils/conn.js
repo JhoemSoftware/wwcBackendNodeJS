@@ -6,7 +6,7 @@ const conn = new Sequelize(process.env.POSTGRESQLDB);
 
 const dbConn = async () => {
     try {
-        // await mongoose.connect(process.env.MONGODB);
+        await mongoose.connect(process.env.MONGODB);
         console.log('¡Database MongoDB connection successfull! 👍'.bgGreen);
 
         await conn.sync();
