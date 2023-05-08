@@ -2,10 +2,10 @@ const mongoose = require('mongoose');
 const { Sequelize } = require('sequelize');
 require('colors');
 
-const conn = new Sequelize(process.env.POSTGRESQLDB);
+/* const conn = new Sequelize(process.env.POSTGRESQLDB); */
 
 const dbConn = async () => {
-    try {
+    /* try {
         await mongoose.connect(process.env.MONGODB);
         console.log('¡Database MongoDB connection successfull! 👍'.bgGreen);
 
@@ -15,7 +15,10 @@ const dbConn = async () => {
         console.clear();
         console.error('Error Database connection 🤔'.bgRed);
         throw new Error('Error Database connection 🤔'.bgRed);
-    }
+    } */
+    return '¡Database PostgreSQL connection successfull! 👍';
 }
 
-module.exports = dbConn;
+module.exports = {
+    dbConn
+}
