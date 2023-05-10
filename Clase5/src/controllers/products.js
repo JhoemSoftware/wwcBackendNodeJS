@@ -3,7 +3,6 @@ const { existsNameProduct, existsProductByID } = require('../middlewares/db-vali
 
 const Product = require('../models/product');
 
-
 /* API Rest Methods */
 const productsGet = async ( _, res = response ) => {
     const products = await Product.find();

@@ -1,5 +1,7 @@
-const dbConn = require('./conn');
+const dbConnMongo = require('./connMongo');
+const dbConnPostgres  = require('./connPostgres');
 
 module.exports = {
-    dbConn
+    dbConnMongo,
+    dbConnPostgres
 }

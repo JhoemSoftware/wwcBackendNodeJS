@@ -8,11 +8,11 @@ router.route('/')
     .get( health.serviceGet )
     .post( health.servicePost )
     .patch( health.servicePatch )
-    .delete( health.serviceDelete )
+    .delete( health.serviceDelete );
 
 router.route('/:id')
     .get( health.serviceGetById )
     .patch( health.servicePatch )
-    .delete( health.serviceDelete )
+    .delete( health.serviceDelete );
 
 module.exports = router;

@@ -3,14 +3,13 @@ const cors = require('cors');
 require('dotenv').config();
 require('colors');
 
-const { dbConn } = require('./../utils/');
+const { dbConnMongo, dbConnPostgres } = require('./../utils/');
 
 class Server {
     constructor(){
         this.app            = express();
         this.host           = 'http://localhost';
         this.urlPath        = '/api/v1/';
-        this.urlPathHealth  = '/api/v1/health/';
         this.port           = process.env.PORT;
 
         this.connDB();
@@ -26,7 +25,8 @@ class Server {
     }
 
     async connDB() {
-        await dbConn();
+        await dbConnMongo();
+        await dbConnPostgres();
     }
     
     middlewares(){

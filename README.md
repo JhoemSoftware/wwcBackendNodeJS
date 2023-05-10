@@ -19,16 +19,19 @@ El proyecto está dividido por clases, para levantar el servicio basta con ejecu
 - <b>Clase 5 :</b> Continuación del proyecto <b>Clase4</b> pero en esta ocasión la Base de datos será en PostgreSQL<br><br><hr>
 <h2>Paquetes Instalados</h2>
 <pre>
-"colors":           "^1.4.0",
-"cors":             "^2.8.5",
-"dotenv":           "^16.0.3",
-"express":          "^4.18.2",
-"express-validator": "^6.15.0",
-"fs":               "^0.0.1-security",
-"mongoose":         "^7.0.4",
-"nodemon":          "^2.0.21",
-"sequelize":        "^6.31.0",
-"sequelize-cli":    "^6.6.0",
-"sqlite3":          "^5.1.6"
+"colors":               "^1.4.0",
+"cors":                 "^2.8.5",
+"dotenv":               "^16.0.3",
+"express":              "^4.18.2",
+"express-validator":    "^6.15.0",
+"fs":                   "^0.0.1-security",
+"joi":                  "^17.9.2",
+"mongoose":             "^7.0.4",
+"nodemon":              "^2.0.21",
+"pg":                   "^8.10.0",
+"pg-hstore":            "^2.3.4",
+"sequelize":            "^6.31.1",
+"sequelize-cli":        "^6.6.0",
+"sqlite3":              "^5.1.6"
 </pre>
 También es importante instalar<pre>sudo npm i -g json-server</pre>
