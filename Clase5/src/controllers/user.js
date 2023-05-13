@@ -1,43 +1,3 @@
-// const { User } = require('./../models/user');
-
-/* exports.getAllUsers = async (_, res) => {
-    console.log("User -> getAllUsers");
-    const users = await User.findAll();
-    res.json(users);
-};
-
-exports.getUserById = async (req, res) => {
-    console.log("User -> getUserById");
-    const { id } = req.params;
-    const Users = await User.findByPk(id);
-    res.json(Users);
-};
-
-exports.createUser = async (req, res) => {
-    console.log("User -> createUser");
-    const user = await new User.create(req.body);
-    res.json(user);
-}
-
-exports.deleteUser = async (req, res) => {
-    console.log("User -> deleteUser");
-    const { id } = req.params;
-    const user = User.findByPk(id);
-    res.json({ message: `User ${user.firstName} ${user.lastName} has been deleted` });
-};
-
-exports.updateUser = async (req, res) => {
-    console.log("User -> updateUser");
-    const { id } = req.params;
-    const user = await User.update(req.body, {
-        returning: true,
-        where: {
-            id
-        }
-    });
-    res.json(user);
-}; */
-
 const { response } = require('express');
 // const { existsNameProduct, existsProductByID } = require('../middlewares/db-validators');
 
@@ -45,12 +5,11 @@ const User = require('../models/user');
 
 /* API Rest Methods */
 const usersGet = async ( _, res = response ) => {
-    // const products = await User.find();
-    const users = 'GET Method USERS';
+    const users = await User.findAll();
     res.json(users);
 }
 
-const usersGetByID = ( req, res = response ) => {
+const usersGetByID = async ( req, res = response ) => {
     const { id } = req.params;
 
     /* const product = existsProductByID(id);
@@ -74,8 +33,7 @@ const usersGetByID = ( req, res = response ) => {
 
             return;
         }) */
-    
-    const user = `Get By ID Method • Users ${id}`;
+    const user = await User.findByPk(id);
     res.json(user);
 }
 
@@ -96,12 +54,12 @@ const usersPost = async ( req, res = response ) => {
 
     await productNew.save(); */
 
-    const userNew = `Post Method User • ${name} ${description} ${price} ${stock} ${category}`;
+    const userNew = await User.create({ name, description, price, stock, category });
 
     res.json( userNew );
 }
 
-const usersPatch = ( req, res = response ) => {
+const usersPatch = async ( req, res = response ) => {
     const { id } = req.params;
 
     /* const product = existsProductByID(id);
@@ -135,12 +93,17 @@ const usersPatch = ( req, res = response ) => {
     })
     */
     
-    const userEdit = `Patch Method • User ${id}`;
+    const userEdit = await User.update(req.body, {
+        returning: true,
+        where: {
+            id
+        }
+    });
 
     res.json(userEdit);
 }
 
-const usersDelete = ( req, res = response ) => {
+const usersDelete = async ( req, res = response ) => {
     const { id } = req.params;
     
     /* const product = existsProductByID(id);
@@ -161,7 +124,8 @@ const usersDelete = ( req, res = response ) => {
             return;
         }) */
 
-    const userDelete = `Delete method · User ${id}`
+    const userDelete = await User.findByPk(id);
+    userDelete.destroy(); // Revisar si es así
 
     res.json( userDelete );
 }
