@@ -1,6 +1,6 @@
-const { User } = require('./../models/user');
+// const { User } = require('./../models/user');
 
-exports.getAllUsers = async (_, res) => {
+/* exports.getAllUsers = async (_, res) => {
     console.log("User -> getAllUsers");
     const users = await User.findAll();
     res.json(users);
@@ -36,14 +36,12 @@ exports.updateUser = async (req, res) => {
         }
     });
     res.json(user);
-};
-
-// MI CODIGO SERÁ
+}; */
 
 const { response } = require('express');
-const { existsNameProduct, existsProductByID } = require('../middlewares/db-validators');
+// const { existsNameProduct, existsProductByID } = require('../middlewares/db-validators');
 
-const User = require('../models/user');
+// const User = require('../models/user');
 
 /* API Rest Methods */
 const usersGet = async ( _, res = response ) => {
@@ -77,7 +75,7 @@ const usersGetByID = ( req, res = response ) => {
             return;
         }) */
     
-    const user = `Get By ID • Method ${id}`;
+    const user = `Get By ID Method • Users ${id}`;
     res.json(user);
 }
 
