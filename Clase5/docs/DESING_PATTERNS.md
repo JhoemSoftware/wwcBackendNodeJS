@@ -1,4 +1,4 @@
-# From Hero to Superhero 7 Design Patterns
+# Design Patterns
 
 ## PATRONES CREACIONALES
 
@@ -36,6 +36,34 @@ class ProfileBuilder {
   }
 }
 ```
+
+```javascript
+//Ejemplo Builder
+class Authentication {
+    constructor(){}
+
+    setProvider(provider){
+        this.provider = provider;
+        return this;
+    }
+
+    setAuthUrl(url){
+        this.url = url;
+        return this;
+    }
+
+    buil(){
+        return this;
+    }
+}
+
+const obj = new Authentication()
+    .setProvider('Firebase')
+    .build()
+
+console.log('New Instance: ', instanceof(obj));
+```
+#
 
 ### Factory
 
@@ -79,9 +107,25 @@ const price = 100;
 const finalPrice = discount.applyDiscount(price);
 console.log(`Precio original: ${price}, Precio final con descuento: ${finalPrice}`);
 ```
-
+```javascript
+//Ejemplo Factory
+class AuthenticationFactory {
+    static createFirebaseAuth(){
+        return new Authentication()
+            .setProvider('Firebase')
+            .build();
+    }
+    // Otra forma de hacerlo
+    static create(provider){
+        return new Authentication()
+            .setProvider(provider)
+            .build();
+    }
+}
+```
 
 ```javascript
+//Ejemplo Factory
 class Car {
   constructor(make, model) {
     this.make = make;
@@ -99,7 +143,7 @@ const factory = new CarFactory();
 const myCar = factory.createCar('Honda', 'Civic');
 console.log(myCar); // Output: Car { make: 'Honda', model: 'Civic' }
 ```
-
+#
 ### Singleton
 
 ```javascript
@@ -126,7 +170,23 @@ console.log(connection1 === connection2); // true, son la misma instancia
 ```
 
 ```javascript
-// Singleton
+//Ejemplo Singleton
+class AuthenticationSingleton {
+    static _instance;
+    
+    static getInstance(){
+        if( !AuthenticationSingleton._instance ){
+            AuthenticationSingleton._instance = new Authentication()
+                .setProvider('Google')
+                .build();
+        }
+        return AuthenticationSingleton._instance;
+    }
+}
+```
+
+```javascript
+//Ejemplo Singleton
 const mongoose = require('mongoose');
 
 class Database {
@@ -147,6 +207,7 @@ class Database {
 module.exports = new Database();
 ```
 
+<hr>
 
 ## PATRONES DE ESTRUCTURA
 
@@ -207,6 +268,29 @@ async function getProduct(req, res) {
   res.json(productMongoDB);
 }
 
+// Ejmplo de Adapter
+class UserAdapter {
+    static factoryAll(users){
+        return users.map( ({username, id, email}) => {
+            return {id, name: name.toUppercase(), username, email, isActive: email.contains('@')}
+        } )
+    }
+}
+
+class User{
+    constructor(username, password){
+        this.user = username;
+        this._passw = password;
+    }
+
+    setPassword(password){
+        this._passw = ecnrypt(password)
+    }
+
+    getPassword(){
+        return '******'
+    }
+}
 ```
 
 ### Bridge
