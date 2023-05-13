@@ -4,7 +4,6 @@ require('dotenv').config();
 require('colors');
 
 const { dbConnMongo, dbConnPostgres } = require('./../utils/');
-
 class Server {
     constructor(){
         this.app            = express();
@@ -32,6 +31,7 @@ class Server {
     middlewares(){
         this.app.use(cors());
         this.app.use(express.json());
+        this.app.use(express.static('Clase5/src/public/'));
     }
     
     routes(){
