@@ -41,7 +41,7 @@ exports.updateUser = async (req, res) => {
 const { response } = require('express');
 // const { existsNameProduct, existsProductByID } = require('../middlewares/db-validators');
 
-// const User = require('../models/user');
+const User = require('../models/user');
 
 /* API Rest Methods */
 const usersGet = async ( _, res = response ) => {
