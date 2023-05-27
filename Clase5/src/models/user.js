@@ -1,5 +1,5 @@
 const { DataTypes, Model } = require('sequelize');
-const { connSql } = require("../utils/");
+const { sequelize } = require('./../utils/connPostgres'); // Tiene que llamarse sí o sí sequalize
 
 class User extends Model {}
 
@@ -40,8 +40,9 @@ User.init({
         allowNull: false
     },
 }, {
-    connSql,
-    modelName: 'User'
+    sequelize,
+    modelName: "User",
+    tableName: "users",
 });
 
 module.exports = User;

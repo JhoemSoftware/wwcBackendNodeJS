@@ -6,7 +6,7 @@ const Product = require('../models/product');
 /* API Rest Methods */
 const productsGet = async ( _, res = response ) => {
     const products = await Product.find();
-
+    
     res.json(products);
 }
 

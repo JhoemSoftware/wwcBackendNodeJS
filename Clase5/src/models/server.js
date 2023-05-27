@@ -8,6 +8,7 @@ require('colors');
 
 
 const { dbConnMongo, dbConnPostgres } = require('./../utils/');
+
 class Server {
     constructor(){
         this.app            = express();

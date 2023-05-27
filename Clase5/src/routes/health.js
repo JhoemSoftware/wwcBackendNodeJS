@@ -1,18 +1,24 @@
 const { Router } = require('express');
 
-const health = require('./../controllers/health');
+const {
+    serviceGet,
+    serviceGetById,
+    servicePost,
+    servicePatch,
+    serviceDelete
+} = require('./../controllers/health');
 
 const router = Router();
 
 router.route('/')
-    .get( health.serviceGet )
-    .post( health.servicePost )
-    .patch( health.servicePatch )
-    .delete( health.serviceDelete );
+    .get( serviceGet )
+    .post( servicePost )
+    .patch( servicePatch )
+    .delete( serviceDelete );
 
 router.route('/:id')
-    .get( health.serviceGetById )
-    .patch( health.servicePatch )
-    .delete( health.serviceDelete );
+    .get( serviceGetById )
+    .patch( servicePatch )
+    .delete( serviceDelete );
 
 module.exports = router;
