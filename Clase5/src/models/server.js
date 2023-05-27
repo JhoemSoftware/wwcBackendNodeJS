@@ -33,7 +33,7 @@ class Server {
     }
 
     async connDB() {
-        // await dbConnMongo();
+        await dbConnMongo();
         await dbConnPostgres();
     }
     
